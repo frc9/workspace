@@ -9,6 +9,7 @@ phases:
     commands:
       - echo Installing source NPM dependencies...
       - npm install unit.js
+      - npm install
   build:
     commands:
       - echo Build started on `date`
