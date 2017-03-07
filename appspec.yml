@@ -6,14 +6,14 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: npm install unit.js
-    - location: npm install pm2
+    - location: /root/.nvm/versions/node/v4.4.5/bin/npm install unit.js
+    - location: /root/.nvm/versions/node/v4.4.5/bin/npm install pm2
       runas: root
   ApplicationStart:
-    - location: pm2 start server
+    - location: /root/.nvm/versions/node/v4.4.5/bin/pm2 start /home/ec2-user/workspace/server.js
       timeout: 3600
       runas: root
   ApplicationStop:
-     - location: pm2 stop server
+     - location: /root/.nvm/versions/node/v4.4.5/bin/pm2 stop /home/ec2-user/workspace/server.js
        timeout: 10
        runas: root
