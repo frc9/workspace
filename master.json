@@ -434,7 +434,12 @@
         "MinSize" : "1",
         "MaxSize" : "10",
         "DesiredCapacity" : "1",
-        "LoadBalancerNames" : [ { "Ref" : "ElasticLoadBalancer" } ]
+        "LoadBalancerNames" : [ { "Ref" : "ElasticLoadBalancer" } ],
+        "Tags":[{
+          "Key":{"Ref":"TagKey"},
+          "Value":{"Ref":"TagValue"},
+          "PropagateAtLaunch" : "true"
+          }]
       }
     },
     "LaunchConfig" : {
@@ -454,7 +459,7 @@
       },
       "Properties" : {
         "AssociatePublicIpAddress" : "true",
-        "ImageId" : "ami-f173cc91",
+        "ImageId" : "ami-adb539cd",
         "SecurityGroups" : [ { "Ref" : "InstanceSecurityGroup" } ],
         "KeyName"        : { "Ref" : "KeyName" },
         "InstanceType" : { "Ref" : "InstanceType" },
