@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/workspace
+
+hooks:
+  BeforeInstall:
+    - location: npm install unit.js
+    - location: npm install pm2
+      runas: root
+  ApplicationStart:
+    - location: pm2 start server
+      timeout: 3600
+      runas: root
+  ApplicationStop:
+     - location: pm2 stop server
+       timeout: 10
+       runas: root
